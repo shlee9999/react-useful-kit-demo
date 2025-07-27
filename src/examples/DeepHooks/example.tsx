@@ -67,7 +67,7 @@ export default function DeepHooksExample() {
   const filteredItems = useDeepMemo(() => {
     console.log('📦 필터링 계산 실행됨');
     if (filters.category === 'all') return items;
-    return items.filter(item => item.category === filters.category);
+    return items.filter((item) => item.category === filters.category);
   }, [items, filters]);
 
   // 참조만 변경 (값은 동일)
@@ -77,7 +77,7 @@ export default function DeepHooksExample() {
 
   // 실제 값 변경
   const changeUserValue = () => {
-    setUser(prev => ({ ...prev, age: prev.age + 1 }));
+    setUser((prev) => ({ ...prev, age: prev.age + 1 }));
   };
 
   // 필터 참조만 변경
@@ -87,7 +87,7 @@ export default function DeepHooksExample() {
 
   // 필터 값 변경
   const changeFiltersValue = () => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       category: prev.category === 'all' ? 'fruit' : 'all',
     }));
@@ -114,7 +114,7 @@ export default function DeepHooksExample() {
       <div style={{ marginBottom: '20px' }}>
         <h3>📋 필터링된 아이템 ({filteredItems.length}개)</h3>
         <p>현재 필터: {filters.category}</p>
-        {filteredItems.map(item => (
+        {filteredItems.map((item) => (
           <div key={item.id}>
             {item.name} ({item.category})
           </div>

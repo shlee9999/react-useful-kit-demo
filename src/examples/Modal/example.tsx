@@ -5,13 +5,13 @@ function ModalExample() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='ruk-example'>
-      <div className='ruk-example-header'>
+    <div className="ruk-example">
+      <div className="ruk-example-header">
         <h2>🚪 Modal 컴포넌트</h2>
         <p>합성 컴포넌트 패턴으로 구현된 유연한 모달 컴포넌트입니다.</p>
       </div>
 
-      <div className='ruk-example-section'>
+      <div className="ruk-example-section">
         <h3>✨ 특징</h3>
         <ul>
           <li>합성 컴포넌트 패턴으로 직관적인 API 제공</li>
@@ -21,14 +21,14 @@ function ModalExample() {
         </ul>
       </div>
 
-      <div className='ruk-cards'>
+      <div className="ruk-cards">
         {/* 기본 모달 */}
-        <div className='ruk-card'>
+        <div className="ruk-card">
           <h3>기본 모달</h3>
           <p>가장 간단한 형태의 모달입니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button className='ruk-card-button primary'>기본 모달 열기</button>
+              <button className="ruk-card-button primary">기본 모달 열기</button>
             </Modal.Trigger>
             <Modal.Content>
               <h2>안녕하세요! 👋</h2>
@@ -39,12 +39,12 @@ function ModalExample() {
         </div>
 
         {/* 커스텀 닫기 버튼 */}
-        <div className='ruk-card'>
+        <div className="ruk-card">
           <h3>커스텀 닫기</h3>
           <p>커스텀 닫기 버튼을 사용한 모달입니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button className='ruk-card-button secondary'>커스텀 모달 열기</button>
+              <button className="ruk-card-button secondary">커스텀 모달 열기</button>
             </Modal.Trigger>
             <Modal.Content>
               <h2>커스텀 모달 🎨</h2>
@@ -70,15 +70,15 @@ function ModalExample() {
         </div>
 
         {/* 기존 이벤트와 통합 */}
-        <div className='ruk-card'>
+        <div className="ruk-card">
           <h3>이벤트 통합</h3>
           <p>기존 onClick 이벤트와 자연스럽게 통합됩니다.</p>
           <Modal>
             <Modal.Trigger>
               <button
-                className='ruk-card-button danger'
+                className="ruk-card-button danger"
                 onClick={() => {
-                  setCount(prev => prev + 1);
+                  setCount((prev) => prev + 1);
                   console.log('카운터 증가!');
                 }}
               >
@@ -126,12 +126,12 @@ function ModalExample() {
         </div>
 
         {/* 오버레이 없는 모달 */}
-        <div className='ruk-card'>
+        <div className="ruk-card">
           <h3>오버레이 없음</h3>
           <p>배경 오버레이 없이 모달만 표시합니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button className='ruk-card-button' style={{ backgroundColor: '#17a2b8', color: 'white' }}>
+              <button className="ruk-card-button" style={{ backgroundColor: '#17a2b8', color: 'white' }}>
                 오버레이 없는 모달
               </button>
             </Modal.Trigger>
@@ -159,9 +159,9 @@ function ModalExample() {
         </div>
       </div>
 
-      <div className='ruk-example-section'>
+      <div className="ruk-example-section">
         <h3>📋 사용 방법</h3>
-        <pre className='ruk-code-block'>
+        <pre className="ruk-code-block">
           {`import { Modal } from 'react-useful-kit'
 
 function App() {
@@ -181,9 +181,9 @@ function App() {
         </pre>
       </div>
 
-      <div className='ruk-example-section'>
+      <div className="ruk-example-section">
         <h3>🎨 CSS 커스터마이징</h3>
-        <pre className='ruk-code-block'>
+        <pre className="ruk-code-block">
           {`.react-useful-kit-modal-overlay {
   /* 오버레이 스타일 */
 }

@@ -35,14 +35,14 @@ export default function DeepEffectExample() {
   useDeepEffect(() => {
     const message = `사용자 정보 변경: ${user.name}, ${user.age}세, 테마: ${user.preferences.theme}`;
     console.log(message);
-    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
+    setLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   }, [user]);
 
   // 배열에 대한 깊은 비교
   useDeepEffect(() => {
     const message = `아이템 목록 변경: [${items.join(', ')}]`;
     console.log(message);
-    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
+    setLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   }, [items]);
 
   const updateUserReference = () => {
@@ -52,7 +52,7 @@ export default function DeepEffectExample() {
 
   const updateUserValue = () => {
     // 실제 값 변경
-    setUser(prev => ({
+    setUser((prev) => ({
       ...prev,
       age: prev.age + 1,
     }));
@@ -65,7 +65,7 @@ export default function DeepEffectExample() {
 
   const updateItemsValue = () => {
     // 실제 값 변경
-    setItems(prev => [...prev, prev.length + 1]);
+    setItems((prev) => [...prev, prev.length + 1]);
   };
 
   const clearLog = () => {

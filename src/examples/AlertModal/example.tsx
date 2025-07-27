@@ -9,7 +9,7 @@ export default function AlertModalExample() {
   const [log, setLog] = useState<string[]>([]);
 
   const addLog = (message: string) => {
-    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
+    setLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   };
 
   const handleSimpleAlert = () => {
