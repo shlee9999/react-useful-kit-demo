@@ -3,7 +3,7 @@ import Description from '@/components/Description';
 import Section from '@/components/Section';
 import Title from '@/components/Title';
 import type { ExampleMeta } from '@/examples';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDeepEffect } from 'react-useful-kit';
 
 interface User {
@@ -32,9 +32,9 @@ export default function DeepEffectExample({ title, description, icon }: ExampleM
   const [log, setLog] = useState<string[]>([]);
 
   // 일반 useEffect 비교용 - 참조가 바뀔 때마다 실행됨
-  // useEffect(() => {
-  //   console.log('일반 useEffect - user 객체 참조 변경:', user)
-  // }, [user])
+  useEffect(() => {
+    console.log('일반 useEffect - user 객체 참조 변경:', user);
+  }, [user]);
 
   // useDeepEffect - 실제 값이 변경될 때만 실행됨
   useDeepEffect(() => {
