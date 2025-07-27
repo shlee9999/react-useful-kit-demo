@@ -1,3 +1,6 @@
+import Description from '@/components/Description';
+import Section from '@/components/Section';
+import Title from '@/components/Title';
 import type { ExampleMeta } from '@/examples';
 import { useState } from 'react';
 import { useAlertModal } from 'react-useful-kit';
@@ -65,14 +68,11 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
 
   return (
     <>
-      <h2 className="mb-10 flex items-center justify-center gap-2 text-center text-3xl font-bold tracking-tight md:text-4xl">
-        <span className="text-4xl">{icon}</span>
-        <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">{title}</span>
-      </h2>
-      <p className="mb-8 text-center text-lg whitespace-pre-line text-slate-600">{description}</p>
+      <Title title={title} icon={icon} />
+      <Description description={description} />
 
       {/* 테스트 버튼 섹션 */}
-      <div className="mb-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
+      <Section>
         <h3 className="mb-5 flex items-center gap-2 text-xl font-semibold text-slate-700">🎮 테스트 버튼들</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <button
@@ -106,7 +106,7 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
             🗑️ 로그 지우기
           </button>
         </div>
-      </div>
+      </Section>
 
       {/* 이벤트 로그 섹션 */}
       <div className="mb-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
