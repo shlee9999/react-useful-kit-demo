@@ -10,10 +10,14 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
+    "moduleDetection": "auto",
     "noEmit": false,
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "declaration": true,
     "jsx": "react-jsx",
 
     /* Linting */
