@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import tailwindcss from '@tailwindcss/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -17,5 +18,5 @@ export default defineConfig({
   server: {
     port: 8000,
   },
-  plugins: [react(), svgr(), tsconfigPaths()],
+  plugins: [react(), svgr(), tsconfigPaths(), tailwindcss()],
 });
