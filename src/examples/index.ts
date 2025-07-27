@@ -1,5 +1,4 @@
-import.meta.glob('./examples/*.meta.ts', { eager: true });
-import.meta.glob('./examples/*.tsx', { eager: true });
+import { lazy, createElement } from 'react';
 
 type ExampleMeta = {
   title: string;
@@ -7,24 +6,38 @@ type ExampleMeta = {
   buttonText: string;
 };
 
-const exampleMetas = import.meta.glob('./*/meta.ts', { eager: true }) as Record<string, { default: ExampleMeta }>;
-const exampleComponents = import.meta.glob('./*/example.tsx', {
-  eager: true,
-}) as Record<string, { default: () => React.ReactNode }>;
+type ExampleComponentProps = ExampleMeta & Record<string, unknown>;
 
-const examples: Record<string, ExampleMeta & { component: () => React.ReactNode }> = {};
+const exampleMetas = import.meta.glob('./*/meta.ts', { eager: true }) as Record<string, { default: ExampleMeta }>;
+const exampleComponents = import.meta.glob('./*/example.tsx') as Record<
+  string,
+  () => Promise<{ default: React.ComponentType<ExampleComponentProps> }>
+>;
+
+const examples: Record<
+  string,
+  ExampleMeta & { component: React.LazyExoticComponent<React.ComponentType<ExampleComponentProps>> }
+> = {};
 
 // meta 파일들 처리
 Object.entries(exampleMetas).forEach(([key, value]) => {
   const exampleName = key.replace('./', '').replace('/meta.ts', '');
-  examples[exampleName] = { ...value.default, component: () => null };
-});
+  const componentPath = key.replace('/meta.ts', '/example.tsx');
 
-// component 파일들 처리
-Object.entries(exampleComponents).forEach(([key, value]) => {
-  const exampleName = key.replace('./', '').replace('/example.tsx', '');
-  if (examples[exampleName]) {
-    examples[exampleName].component = value.default;
+  if (exampleComponents[componentPath]) {
+    const LazyComponent = lazy(() =>
+      exampleComponents[componentPath]().then((module) => ({
+        default: (props: ExampleComponentProps) => {
+          const Component = module.default;
+          return createElement(Component, { ...value.default, ...props });
+        },
+      }))
+    );
+
+    examples[exampleName] = {
+      ...value.default,
+      component: LazyComponent,
+    };
   }
 });
 

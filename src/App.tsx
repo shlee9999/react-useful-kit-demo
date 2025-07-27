@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <>
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="animate-float bg-primary-100 absolute -top-40 -right-40 h-80 w-80 rounded-full opacity-40 blur-3xl"></div>
@@ -35,7 +35,7 @@ function App() {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 px-6 py-16 text-center">
+      <header className="relative px-6 py-16 text-center">
         <div className="mx-auto max-w-4xl">
           <h1 className="font-display animate-fade-in text-primary-700 mb-4 text-5xl font-bold md:text-6xl">
             React Useful Kit
@@ -50,7 +50,7 @@ function App() {
       </header>
 
       {/* Navigation */}
-      <nav className="relative z-10 mb-12 px-6">
+      <nav className="relative mb-12 px-6">
         <div className="mx-auto max-w-6xl">
           <div className="shadow-soft rounded-2xl border border-white bg-white p-2">
             <div className="flex flex-wrap justify-center gap-2">
@@ -73,7 +73,7 @@ function App() {
       </nav>
 
       {/* Content */}
-      <main className="relative z-10 px-6 pb-20">
+      <main className="relative px-6 pb-20">
         <div className="mx-auto max-w-6xl">
           {activeTab === 'overview' && (
             <div className="space-y-16">
@@ -147,7 +147,7 @@ function App() {
 
           {/* Example Component Container */}
           {activeTab !== 'overview' && (
-            <div className="shadow-soft animate-fade-in rounded-3xl border border-slate-200 bg-white p-8">
+            <div className="shadow-soft animate-fade-in mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-8 backdrop-blur-lg md:p-10">
               {renderActiveComponent()}
             </div>
           )}
@@ -155,7 +155,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 px-6 py-12 text-center">
+      <footer className="relative px-6 py-12 text-center">
         <div className="mx-auto max-w-4xl">
           <div className="shadow-soft rounded-2xl border border-slate-200 bg-white p-8">
             <p className="text-lg font-medium text-slate-700">
@@ -168,7 +168,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
