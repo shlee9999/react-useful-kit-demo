@@ -72,40 +72,22 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
       <Title title={title} icon={icon} />
       <Description description={description} />
 
-      {/* 테스트 버튼 섹션 */}
+      {/* 테스트 섹션 */}
       <Section>
-        <h3 className="mb-5 flex items-center gap-2 text-xl font-semibold text-slate-700">🎮 테스트 버튼들</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Section.Title icon="🎮">테스트</Section.Title>
+        <div className="grid grid-cols-2 gap-4">
           <DemoButton onClick={handleSimpleAlert} icon="💬" children="간단한 알림" variant="blue" />
           <DemoButton onClick={handleConfirmAlert} icon="❓" children="확인/취소 알림" variant="amber" />
           <DemoButton onClick={handleCustomAlert} icon="🎨" children="커스텀 버튼 텍스트" variant="purple" />
           <DemoButton onClick={handleJSXAlert} icon="⚛️" children="JSX 메시지" variant="emerald" />
-          <DemoButton onClick={clearLog} icon="🗑️" children="로그 지우기" variant="red" />
         </div>
       </Section>
 
       {/* 이벤트 로그 섹션 */}
-      <div className="mb-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-        <h3 className="mb-5 flex items-center gap-2 text-xl font-semibold text-slate-700">📝 이벤트 로그</h3>
-        <div className="max-h-72 overflow-y-auto rounded-2xl border border-slate-600 bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-inner">
-          {log.length === 0 ? (
-            <div className="py-5 text-center text-slate-400 italic">
-              아직 로그가 없습니다. 위의 버튼들을 클릭해보세요! 🚀
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {log.map((entry, index) => (
-                <div
-                  key={index}
-                  className="rounded-lg border-l-4 border-indigo-400 bg-white/5 p-3 font-mono text-sm text-slate-200 backdrop-blur-sm"
-                >
-                  {entry}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      <Section>
+        <Section.Title icon="📝">이벤트 로그</Section.Title>
+        <Section.LogContainer logs={log} clearLog={clearLog} />
+      </Section>
 
       {/* 사용법 안내 섹션 */}
       <div className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-100 p-6">

@@ -166,7 +166,7 @@ export default function DeepHooksExample({ title, description, icon }: ExampleMe
       </Section>
 
       <Section>
-        <Section.Title icon="🎮">테스트 버튼들</Section.Title>
+        <Section.Title icon="🎮">테스트</Section.Title>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <DemoButton onClick={changeUserReference} icon="👤" children="사용자 참조만 변경" variant="blue" />
           <DemoButton onClick={changeUserValue} icon="👤" children="사용자 나이 +1" variant="amber" />
@@ -189,14 +189,7 @@ export default function DeepHooksExample({ title, description, icon }: ExampleMe
 
       <Section>
         <Section.Title icon="📝">실행 로그</Section.Title>
-        <Section.LogContainer logs={log} />
-        <DemoButton
-          onClick={clearLog}
-          icon="🗑️"
-          children="로그 지우기"
-          variant="red"
-          className="absolute top-2 right-2"
-        />
+        <Section.LogContainer logs={log} clearLog={clearLog} />
       </Section>
 
       <Section>

@@ -85,13 +85,18 @@ export default function DeepEffectExample({ title, description, icon }: ExampleM
       <Section>
         <Section.Title icon="📊">현재 상태</Section.Title>
         <div>
-          <p>사용자: {JSON.stringify(user)}</p>
-          <p>아이템: [{items.join(', ')}]</p>
+          <div className="space-y-2 text-slate-600">
+            <p>이름: {user.name}</p>
+            <p>나이: {user.age}</p>
+            <p>테마: {user.preferences.theme}</p>
+            <p>언어: {user.preferences.language}</p>
+            <p>아이템: {items.join(', ')}</p>
+          </div>
         </div>
       </Section>
 
       <Section>
-        <Section.Title icon="🎮">테스트 버튼</Section.Title>
+        <Section.Title icon="🎮">테스트</Section.Title>
         <div className="grid grid-cols-2 gap-2">
           <DemoButton
             onClick={updateUserReference}
@@ -122,14 +127,7 @@ export default function DeepEffectExample({ title, description, icon }: ExampleM
 
       <Section>
         <Section.Title icon="📝">useDeepEffect 실행 로그</Section.Title>
-        <Section.LogContainer logs={log} />
-        <DemoButton
-          onClick={clearLog}
-          icon="🗑️"
-          children="로그 지우기"
-          variant="red"
-          className="absolute top-2 right-2"
-        />
+        <Section.LogContainer logs={log} clearLog={clearLog} />
       </Section>
 
       <Section>

@@ -1,4 +1,6 @@
 import { cn } from '@/utils/cn';
+import { useRef, useEffect } from 'react';
+import { useAlertModal } from 'react-useful-kit';
 
 export default function Section({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -34,9 +36,34 @@ Section.Button = function Button({ children }: { children: React.ReactNode }) {
   );
 };
 
-Section.LogContainer = function LogContainer({ className, logs }: { className?: string; logs: string[] }) {
+Section.LogContainer = function LogContainer({
+  className,
+  logs,
+  clearLog,
+}: {
+  className?: string;
+  logs: string[];
+  clearLog: () => void;
+}) {
+  const { alert } = useAlertModal();
+  const handleClearLog = () => {
+    alert({
+      title: '로그 삭제',
+      message: '로그를 전부 삭제하시겠습니까?',
+      onConfirm: clearLog,
+    });
+  };
+  const logContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (logContainerRef.current) {
+      logContainerRef.current.scrollTop = logContainerRef.current.scrollHeight;
+    }
+  }, [logs]);
+
   return (
     <div
+      ref={logContainerRef}
       className={cn(
         'max-h-72 overflow-y-auto rounded-2xl border border-slate-600 bg-gradient-to-br from-slate-800 to-slate-900 p-6 shadow-inner',
         className
@@ -54,6 +81,9 @@ Section.LogContainer = function LogContainer({ className, logs }: { className?: 
           </div>
         ))
       )}
+      <button onClick={handleClearLog} className="absolute top-6 right-6">
+        로그 삭제
+      </button>
     </div>
   );
 };
