@@ -1,9 +1,10 @@
-import { lazy, createElement } from 'react';
+import { lazy, createElement, type ReactNode } from 'react';
 
-type ExampleMeta = {
-  title: string;
-  description: string;
-  buttonText: string;
+export type ExampleMeta = {
+  title: ReactNode;
+  description: ReactNode;
+  buttonText: ReactNode;
+  icon: ReactNode;
 };
 
 type ExampleComponentProps = ExampleMeta & Record<string, unknown>;

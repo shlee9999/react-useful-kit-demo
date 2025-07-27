@@ -1,26 +1,25 @@
+import type { ExampleMeta } from '@/examples';
+
 export default function ExampleCard({
   title,
   description,
   buttonText,
+  icon,
   onClick,
-}: {
-  title: string;
-  description: string;
-  buttonText: string;
-  onClick: () => void;
-}) {
+}: ExampleMeta & { onClick: () => void }) {
   return (
     <div
-      className="group shadow-soft hover:shadow-colored-lg hover:border-primary-300 relative transform cursor-pointer rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
+      className="group shadow-soft hover:border-primary-300 hover:shadow-colored-lg relative transform cursor-pointer rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
       onClick={onClick}
     >
       {/* Background Color on Hover */}
-      <div className="bg-primary-50 absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
+      <div className="bg-primary-100 absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
 
       {/* Content */}
       <div className="relative z-10">
         <h3 className="font-display group-hover:text-primary-700 mb-4 text-2xl font-bold text-slate-800 transition-colors duration-300">
-          {title}
+          <span className="mr-1">{icon}</span>
+          <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">{title}</span>
         </h3>
         <p className="mb-6 text-lg leading-relaxed text-slate-600">{description}</p>
         <button

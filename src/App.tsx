@@ -5,10 +5,15 @@ import examples from './examples';
 type TabType = 'overview' | keyof typeof examples;
 
 const tabs = [
-  { id: 'overview', label: '🏠 개요', component: null },
+  { id: 'overview', label: '🏠 Overview', component: null },
   ...Object.entries(examples).map(([key, example]) => ({
     id: key,
-    label: `${example.title}`,
+    label: (
+      <div className="flex items-center gap-2 text-lg">
+        <span>{example.icon}</span>
+        <span>{example.title}</span>
+      </div>
+    ),
     component: example.component,
   })),
 ] as const;
@@ -61,7 +66,7 @@ function App() {
                   className={`transform rounded-xl px-6 py-3 font-medium transition-all duration-300 hover:scale-105 ${
                     activeTab === tab.id
                       ? 'bg-primary-600 shadow-colored text-white'
-                      : 'hover:bg-primary-50 hover:text-primary-700 text-slate-700'
+                      : 'hover:bg-primary-100 hover:text-primary-700 text-slate-700'
                   }`}
                 >
                   {tab.label}
@@ -97,12 +102,7 @@ function App() {
               >
                 {Object.entries(examples).map(([key, example], index) => (
                   <div key={key} className="animate-fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
-                    <ExampleCard
-                      title={example.title}
-                      description={example.description}
-                      buttonText={example.buttonText}
-                      onClick={() => setActiveTab(key as TabType)}
-                    />
+                    <ExampleCard {...example} onClick={() => setActiveTab(key as TabType)} />
                   </div>
                 ))}
               </div>

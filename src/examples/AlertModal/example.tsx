@@ -1,19 +1,11 @@
+import type { ExampleMeta } from '@/examples';
 import { useState } from 'react';
 import { useAlertModal } from 'react-useful-kit';
 
 /**
  * useAlertModal 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
-export default function AlertModalExample({
-  title,
-  description,
-  buttonText,
-}: {
-  title: string;
-  description: string;
-  buttonText: string;
-}) {
-  console.log(title, description, buttonText);
+export default function AlertModalExample({ title, description, icon }: ExampleMeta) {
   const { alert } = useAlertModal();
   const [log, setLog] = useState<string[]>([]);
 
@@ -73,9 +65,11 @@ export default function AlertModalExample({
 
   return (
     <>
-      <h2 className="mb-10 bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-center text-3xl font-bold tracking-tight text-transparent md:text-4xl">
-        ✨ useAlertModal 예제
+      <h2 className="mb-10 flex items-center justify-center gap-2 text-center text-3xl font-bold tracking-tight md:text-4xl">
+        <span className="text-4xl">{icon}</span>
+        <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">{title}</span>
       </h2>
+      <p className="mb-8 text-center text-lg whitespace-pre-line text-slate-600">{description}</p>
 
       {/* 테스트 버튼 섹션 */}
       <div className="mb-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
