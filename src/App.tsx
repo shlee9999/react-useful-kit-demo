@@ -35,13 +35,11 @@ function App() {
       {/* Navigation */}
       <nav className='ruk-nav'>
         <div className='ruk-nav-container'>
-          {tabs.map((tab) => (
+          {tabs.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`ruk-nav-button ${
-                activeTab === tab.id ? 'active' : ''
-              }`}
+              className={`ruk-nav-button ${activeTab === tab.id ? 'active' : ''}`}
             >
               {tab.label}
             </button>
@@ -58,8 +56,7 @@ function App() {
                 <span className='ruk-overview-title-icon'>🚀</span> 환영합니다!
               </h2>
               <p className='ruk-overview-description'>
-                React 개발을 더욱 편리하게 만들어주는 유용한 도구들을
-                모았습니다.
+                React 개발을 더욱 편리하게 만들어주는 유용한 도구들을 모았습니다.
                 <br />각 탭을 클릭하여 실제 동작을 확인해보세요!
               </p>
             </div>
@@ -78,9 +75,7 @@ function App() {
 
             <div className='ruk-install-section'>
               <h3>📦 설치 방법</h3>
-              <code className='ruk-install-code'>
-                npm install react-useful-kit
-              </code>
+              <code className='ruk-install-code'>npm install react-useful-kit</code>
             </div>
           </div>
         )}

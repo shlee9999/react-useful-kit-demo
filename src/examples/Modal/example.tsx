@@ -28,9 +28,7 @@ function ModalExample() {
           <p>가장 간단한 형태의 모달입니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button className='ruk-card-button primary'>
-                기본 모달 열기
-              </button>
+              <button className='ruk-card-button primary'>기본 모달 열기</button>
             </Modal.Trigger>
             <Modal.Content>
               <h2>안녕하세요! 👋</h2>
@@ -46,9 +44,7 @@ function ModalExample() {
           <p>커스텀 닫기 버튼을 사용한 모달입니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button className='ruk-card-button secondary'>
-                커스텀 모달 열기
-              </button>
+              <button className='ruk-card-button secondary'>커스텀 모달 열기</button>
             </Modal.Trigger>
             <Modal.Content>
               <h2>커스텀 모달 🎨</h2>
@@ -82,7 +78,7 @@ function ModalExample() {
               <button
                 className='ruk-card-button danger'
                 onClick={() => {
-                  setCount((prev) => prev + 1);
+                  setCount(prev => prev + 1);
                   console.log('카운터 증가!');
                 }}
               >
@@ -135,10 +131,7 @@ function ModalExample() {
           <p>배경 오버레이 없이 모달만 표시합니다.</p>
           <Modal>
             <Modal.Trigger>
-              <button
-                className='ruk-card-button'
-                style={{ backgroundColor: '#17a2b8', color: 'white' }}
-              >
+              <button className='ruk-card-button' style={{ backgroundColor: '#17a2b8', color: 'white' }}>
                 오버레이 없는 모달
               </button>
             </Modal.Trigger>

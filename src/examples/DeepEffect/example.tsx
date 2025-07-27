@@ -35,20 +35,14 @@ export default function DeepEffectExample() {
   useDeepEffect(() => {
     const message = `사용자 정보 변경: ${user.name}, ${user.age}세, 테마: ${user.preferences.theme}`;
     console.log(message);
-    setLog((prev) => [
-      ...prev,
-      `${new Date().toLocaleTimeString()} - ${message}`,
-    ]);
+    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   }, [user]);
 
   // 배열에 대한 깊은 비교
   useDeepEffect(() => {
     const message = `아이템 목록 변경: [${items.join(', ')}]`;
     console.log(message);
-    setLog((prev) => [
-      ...prev,
-      `${new Date().toLocaleTimeString()} - ${message}`,
-    ]);
+    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   }, [items]);
 
   const updateUserReference = () => {
@@ -58,7 +52,7 @@ export default function DeepEffectExample() {
 
   const updateUserValue = () => {
     // 실제 값 변경
-    setUser((prev) => ({
+    setUser(prev => ({
       ...prev,
       age: prev.age + 1,
     }));
@@ -71,7 +65,7 @@ export default function DeepEffectExample() {
 
   const updateItemsValue = () => {
     // 실제 값 변경
-    setItems((prev) => [...prev, prev.length + 1]);
+    setItems(prev => [...prev, prev.length + 1]);
   };
 
   const clearLog = () => {
@@ -101,10 +95,7 @@ export default function DeepEffectExample() {
           <button onClick={updateUserValue} style={{ padding: '8px 12px' }}>
             사용자 실제 값 변경 (깊은 비교 → 실행됨)
           </button>
-          <button
-            onClick={updateItemsReference}
-            style={{ padding: '8px 12px' }}
-          >
+          <button onClick={updateItemsReference} style={{ padding: '8px 12px' }}>
             아이템 참조만 변경 (깊은 비교 → 실행 안됨)
           </button>
           <button onClick={updateItemsValue} style={{ padding: '8px 12px' }}>
@@ -137,9 +128,7 @@ export default function DeepEffectExample() {
           }}
         >
           {log.length === 0 ? (
-            <p style={{ color: '#666', margin: 0 }}>
-              아직 로그가 없습니다. 버튼을 클릭해보세요!
-            </p>
+            <p style={{ color: '#666', margin: 0 }}>아직 로그가 없습니다. 버튼을 클릭해보세요!</p>
           ) : (
             log.map((entry, index) => (
               <div key={index} style={{ marginBottom: '5px' }}>
@@ -160,18 +149,9 @@ export default function DeepEffectExample() {
       >
         <h4>💡 사용법 안내:</h4>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
-          <li>
-            "참조만 변경" 버튼: 같은 값으로 새 객체/배열을 만듭니다.
-            useDeepEffect는 실행되지 않습니다.
-          </li>
-          <li>
-            "실제 값 변경" 버튼: 객체/배열의 실제 내용을 변경합니다.
-            useDeepEffect가 실행됩니다.
-          </li>
-          <li>
-            일반 useEffect라면 참조 변경만으로도 실행되지만, useDeepEffect는
-            실제 값 변경에만 반응합니다.
-          </li>
+          <li>"참조만 변경" 버튼: 같은 값으로 새 객체/배열을 만듭니다. useDeepEffect는 실행되지 않습니다.</li>
+          <li>"실제 값 변경" 버튼: 객체/배열의 실제 내용을 변경합니다. useDeepEffect가 실행됩니다.</li>
+          <li>일반 useEffect라면 참조 변경만으로도 실행되지만, useDeepEffect는 실제 값 변경에만 반응합니다.</li>
         </ul>
       </div>
     </div>

@@ -9,10 +9,7 @@ export default function AlertModalExample() {
   const [log, setLog] = useState<string[]>([]);
 
   const addLog = (message: string) => {
-    setLog((prev) => [
-      ...prev,
-      `${new Date().toLocaleTimeString()} - ${message}`,
-    ]);
+    setLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   };
 
   const handleSimpleAlert = () => {
@@ -111,9 +108,7 @@ export default function AlertModalExample() {
           }}
         >
           {log.length === 0 ? (
-            <p style={{ color: '#666', margin: 0 }}>
-              아직 로그가 없습니다. 버튼을 클릭해보세요!
-            </p>
+            <p style={{ color: '#666', margin: 0 }}>아직 로그가 없습니다. 버튼을 클릭해보세요!</p>
           ) : (
             log.map((entry, index) => (
               <div key={index} style={{ marginBottom: '5px' }}>
@@ -138,15 +133,13 @@ export default function AlertModalExample() {
             <strong>간단한 사용:</strong> <code>alert('메시지')</code>
           </li>
           <li>
-            <strong>옵션 사용:</strong> 제목, 버튼 텍스트, 콜백 함수 등을
-            커스터마이징
+            <strong>옵션 사용:</strong> 제목, 버튼 텍스트, 콜백 함수 등을 커스터마이징
           </li>
           <li>
             <strong>JSX 지원:</strong> 메시지에 React 컴포넌트를 전달 가능
           </li>
           <li>
-            <strong>함수형 호출:</strong> 상태 관리 없이 함수만 호출하면 모달
-            표시
+            <strong>함수형 호출:</strong> 상태 관리 없이 함수만 호출하면 모달 표시
           </li>
         </ul>
       </div>

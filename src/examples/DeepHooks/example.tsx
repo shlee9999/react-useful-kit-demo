@@ -67,7 +67,7 @@ export default function DeepHooksExample() {
   const filteredItems = useDeepMemo(() => {
     console.log('📦 필터링 계산 실행됨');
     if (filters.category === 'all') return items;
-    return items.filter((item) => item.category === filters.category);
+    return items.filter(item => item.category === filters.category);
   }, [items, filters]);
 
   // 참조만 변경 (값은 동일)
@@ -77,7 +77,7 @@ export default function DeepHooksExample() {
 
   // 실제 값 변경
   const changeUserValue = () => {
-    setUser((prev) => ({ ...prev, age: prev.age + 1 }));
+    setUser(prev => ({ ...prev, age: prev.age + 1 }));
   };
 
   // 필터 참조만 변경
@@ -87,7 +87,7 @@ export default function DeepHooksExample() {
 
   // 필터 값 변경
   const changeFiltersValue = () => {
-    setFilters((prev) => ({
+    setFilters(prev => ({
       ...prev,
       category: prev.category === 'all' ? 'fruit' : 'all',
     }));
@@ -114,7 +114,7 @@ export default function DeepHooksExample() {
       <div style={{ marginBottom: '20px' }}>
         <h3>📋 필터링된 아이템 ({filteredItems.length}개)</h3>
         <p>현재 필터: {filters.category}</p>
-        {filteredItems.map((item) => (
+        {filteredItems.map(item => (
           <div key={item.id}>
             {item.name} ({item.category})
           </div>
@@ -130,25 +130,16 @@ export default function DeepHooksExample() {
           <button onClick={changeUserValue} style={{ padding: '8px 16px' }}>
             👤 사용자 나이 +1
           </button>
-          <button
-            onClick={changeFiltersReference}
-            style={{ padding: '8px 16px' }}
-          >
+          <button onClick={changeFiltersReference} style={{ padding: '8px 16px' }}>
             🔍 필터 참조만 변경
           </button>
           <button onClick={changeFiltersValue} style={{ padding: '8px 16px' }}>
             🔍 필터 값 변경
           </button>
-          <button
-            onClick={() => handleSubmitNormal('테스트 데이터')}
-            style={{ padding: '8px 16px' }}
-          >
+          <button onClick={() => handleSubmitNormal('테스트 데이터')} style={{ padding: '8px 16px' }}>
             📤 일반 콜백 실행
           </button>
-          <button
-            onClick={() => handleSubmitDeep('테스트 데이터')}
-            style={{ padding: '8px 16px' }}
-          >
+          <button onClick={() => handleSubmitDeep('테스트 데이터')} style={{ padding: '8px 16px' }}>
             📤 Deep 콜백 실행
           </button>
         </div>
@@ -171,9 +162,7 @@ export default function DeepHooksExample() {
           </ul>
           <li>"사용자 나이 +1" 버튼을 클릭하면:</li>
           <ul>
-            <li>
-              🔄 일반 useMemo와 ✅ useDeepMemo 모두 재계산됩니다 (올바른 동작)
-            </li>
+            <li>🔄 일반 useMemo와 ✅ useDeepMemo 모두 재계산됩니다 (올바른 동작)</li>
           </ul>
           <li>필터 버튼들도 같은 방식으로 동작합니다</li>
         </ol>

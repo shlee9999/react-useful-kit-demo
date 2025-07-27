@@ -7,18 +7,12 @@ type ExampleMeta = {
   buttonText: string;
 };
 
-const exampleMetas = import.meta.glob('./*/meta.ts', { eager: true }) as Record<
-  string,
-  { default: ExampleMeta }
->;
+const exampleMetas = import.meta.glob('./*/meta.ts', { eager: true }) as Record<string, { default: ExampleMeta }>;
 const exampleComponents = import.meta.glob('./*/example.tsx', {
   eager: true,
 }) as Record<string, { default: () => React.ReactNode }>;
 
-const examples: Record<
-  string,
-  ExampleMeta & { component: () => React.ReactNode }
-> = {};
+const examples: Record<string, ExampleMeta & { component: () => React.ReactNode }> = {};
 
 // meta 파일들 처리
 Object.entries(exampleMetas).forEach(([key, value]) => {

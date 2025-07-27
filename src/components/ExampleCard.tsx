@@ -4,10 +4,10 @@ export default function ExampleCard({
   buttonText,
   onClick,
 }: {
-  title: string
-  description: string
-  buttonText: string
-  onClick: () => void
+  title: string;
+  description: string;
+  buttonText: string;
+  onClick: () => void;
 }) {
   return (
     <div className='ruk-card'>
@@ -17,5 +17,5 @@ export default function ExampleCard({
         {buttonText}
       </button>
     </div>
-  )
+  );
 }
