@@ -1,3 +1,4 @@
+import DemoButton from '@/components/DemoButton';
 import Description from '@/components/Description';
 import Section from '@/components/Section';
 import Title from '@/components/Title';
@@ -75,36 +76,11 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
       <Section>
         <h3 className="mb-5 flex items-center gap-2 text-xl font-semibold text-slate-700">🎮 테스트 버튼들</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <button
-            onClick={handleSimpleAlert}
-            className="rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-blue-600 hover:to-blue-700 hover:shadow-xl active:scale-95"
-          >
-            💬 간단한 알림
-          </button>
-          <button
-            onClick={handleConfirmAlert}
-            className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-amber-600 hover:to-orange-600 hover:shadow-xl active:scale-95"
-          >
-            ❓ 확인/취소 알림
-          </button>
-          <button
-            onClick={handleCustomAlert}
-            className="rounded-xl bg-gradient-to-r from-purple-500 to-violet-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-purple-600 hover:to-violet-700 hover:shadow-xl active:scale-95"
-          >
-            🎨 커스텀 버튼 텍스트
-          </button>
-          <button
-            onClick={handleJSXAlert}
-            className="rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-emerald-600 hover:to-teal-700 hover:shadow-xl active:scale-95"
-          >
-            ⚛️ JSX 메시지
-          </button>
-          <button
-            onClick={clearLog}
-            className="rounded-xl bg-gradient-to-r from-red-500 to-rose-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-red-600 hover:to-rose-700 hover:shadow-xl active:scale-95 sm:col-span-2 lg:col-span-1"
-          >
-            🗑️ 로그 지우기
-          </button>
+          <DemoButton onClick={handleSimpleAlert} icon="💬" children="간단한 알림" variant="blue" />
+          <DemoButton onClick={handleConfirmAlert} icon="❓" children="확인/취소 알림" variant="amber" />
+          <DemoButton onClick={handleCustomAlert} icon="🎨" children="커스텀 버튼 텍스트" variant="purple" />
+          <DemoButton onClick={handleJSXAlert} icon="⚛️" children="JSX 메시지" variant="emerald" />
+          <DemoButton onClick={clearLog} icon="🗑️" children="로그 지우기" variant="red" />
         </div>
       </Section>
 

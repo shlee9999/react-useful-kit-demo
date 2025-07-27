@@ -1,3 +1,8 @@
+import DemoButton from '@/components/DemoButton';
+import Description from '@/components/Description';
+import Section from '@/components/Section';
+import Title from '@/components/Title';
+import type { ExampleMeta } from '@/examples';
 import { useState } from 'react';
 import { useDeepEffect } from 'react-useful-kit';
 
@@ -13,7 +18,7 @@ interface User {
 /**
  * useDeepEffect 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
-export default function DeepEffectExample() {
+export default function DeepEffectExample({ title, description, icon }: ExampleMeta) {
   const [user, setUser] = useState<User>({
     name: 'John',
     age: 30,
@@ -73,87 +78,72 @@ export default function DeepEffectExample() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h2>useDeepEffect 예제</h2>
+    <>
+      <Title title={title} icon={icon} />
+      <Description description={description} />
 
-      <div style={{ marginBottom: '20px' }}>
-        <h3>현재 상태:</h3>
-        <p>
-          <strong>사용자:</strong> {JSON.stringify(user)}
-        </p>
-        <p>
-          <strong>아이템:</strong> [{items.join(', ')}]
-        </p>
-      </div>
-
-      <div style={{ marginBottom: '20px' }}>
-        <h3>테스트 버튼:</h3>
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          <button onClick={updateUserReference} style={{ padding: '8px 12px' }}>
-            사용자 참조만 변경 (깊은 비교 → 실행 안됨)
-          </button>
-          <button onClick={updateUserValue} style={{ padding: '8px 12px' }}>
-            사용자 실제 값 변경 (깊은 비교 → 실행됨)
-          </button>
-          <button onClick={updateItemsReference} style={{ padding: '8px 12px' }}>
-            아이템 참조만 변경 (깊은 비교 → 실행 안됨)
-          </button>
-          <button onClick={updateItemsValue} style={{ padding: '8px 12px' }}>
-            아이템 실제 값 변경 (깊은 비교 → 실행됨)
-          </button>
-          <button
-            onClick={clearLog}
-            style={{
-              padding: '8px 12px',
-              backgroundColor: '#f44336',
-              color: 'white',
-            }}
-          >
-            로그 지우기
-          </button>
+      <Section>
+        <Section.Title icon="📊">현재 상태</Section.Title>
+        <div>
+          <p>사용자: {JSON.stringify(user)}</p>
+          <p>아이템: [{items.join(', ')}]</p>
         </div>
-      </div>
+      </Section>
 
-      <div>
-        <h3>useDeepEffect 실행 로그:</h3>
-        <div
-          style={{
-            backgroundColor: '#f5f5f5',
-            padding: '15px',
-            borderRadius: '4px',
-            maxHeight: '300px',
-            overflowY: 'auto',
-            fontFamily: 'monospace',
-            fontSize: '14px',
-          }}
-        >
-          {log.length === 0 ? (
-            <p style={{ color: '#666', margin: 0 }}>아직 로그가 없습니다. 버튼을 클릭해보세요!</p>
-          ) : (
-            log.map((entry, index) => (
-              <div key={index} style={{ marginBottom: '5px' }}>
-                {entry}
-              </div>
-            ))
-          )}
+      <Section>
+        <Section.Title icon="🎮">테스트 버튼</Section.Title>
+        <div className="grid grid-cols-2 gap-2">
+          <DemoButton
+            onClick={updateUserReference}
+            children="사용자 참조만 변경 (깊은 비교 → 실행 안됨)"
+            variant="blue"
+            className="w-full"
+          />
+          <DemoButton
+            onClick={updateUserValue}
+            children="사용자 실제 값 변경 (깊은 비교 → 실행됨)"
+            variant="amber"
+            className="w-full"
+          />
+          <DemoButton
+            onClick={updateItemsReference}
+            children="아이템 참조만 변경 (깊은 비교 → 실행 안됨)"
+            variant="emerald"
+            className="w-full"
+          />
+          <DemoButton
+            onClick={updateItemsValue}
+            children="아이템 실제 값 변경 (깊은 비교 → 실행됨)"
+            variant="purple"
+            className="w-full"
+          />
         </div>
-      </div>
+      </Section>
 
-      <div
-        style={{
-          marginTop: '20px',
-          padding: '15px',
-          backgroundColor: '#e3f2fd',
-          borderRadius: '4px',
-        }}
-      >
-        <h4>💡 사용법 안내:</h4>
-        <ul style={{ margin: 0, paddingLeft: '20px' }}>
-          <li>"참조만 변경" 버튼: 같은 값으로 새 객체/배열을 만듭니다. useDeepEffect는 실행되지 않습니다.</li>
-          <li>"실제 값 변경" 버튼: 객체/배열의 실제 내용을 변경합니다. useDeepEffect가 실행됩니다.</li>
+      <Section>
+        <Section.Title icon="📝">useDeepEffect 실행 로그</Section.Title>
+        <Section.LogContainer logs={log} />
+        <DemoButton
+          onClick={clearLog}
+          icon="🗑️"
+          children="로그 지우기"
+          variant="red"
+          className="absolute top-2 right-2"
+        />
+      </Section>
+
+      <Section>
+        <Section.Title icon="💡">사용법 안내</Section.Title>
+        <ul className="ml-4 list-disc">
+          <li>
+            <strong>"참조만 변경"</strong> 버튼: 같은 값으로 새 객체/배열을 만듭니다. useDeepEffect는 실행되지 않습니다.
+          </li>
+          <li>
+            <strong>"실제 값 변경"</strong> 버튼: 객체/배열의 실제 내용을 변경합니다. useDeepEffect가 실행됩니다.
+          </li>
           <li>일반 useEffect라면 참조 변경만으로도 실행되지만, useDeepEffect는 실제 값 변경에만 반응합니다.</li>
         </ul>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }
