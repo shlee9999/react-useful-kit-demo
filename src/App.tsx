@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50/90 via-purple-50/80 to-pink-50/70">
       {/* Header */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 px-6 py-20 text-center">
+      <header className="shadow-elegant relative mb-12 overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 px-6 py-20 text-center">
         {/* Animated Background Elements */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-20 -left-20 h-56 w-56 animate-pulse rounded-full bg-white/35 shadow-2xl blur-xl"></div>
@@ -100,16 +100,7 @@ function App() {
             </Button>
           </div>
         </div>
-
-        {/* Soft Bottom Edge - 부드러운 하단 경계 */}
-        <div className="absolute right-0 bottom-0 left-0 h-32 bg-gradient-to-b from-transparent via-indigo-500/20 to-indigo-500/5"></div>
-        <div className="absolute right-0 -bottom-1 left-0 h-8 bg-gradient-to-b from-indigo-500/10 to-transparent blur-sm"></div>
       </header>
-
-      {/* Transition Area - 헤더와 nav 사이 전환 영역 */}
-      <div className="relative h-24 bg-gradient-to-b from-indigo-500/5 via-purple-500/3 to-transparent">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/40 via-purple-50/30 to-pink-50/20"></div>
-      </div>
 
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -125,7 +116,7 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="relative mb-16 px-6">
+      <nav className="relative mb-12 px-6">
         <div className="mx-auto max-w-6xl">
           <div className="shadow-elegant rounded-3xl border border-white/80 bg-white/95 p-3 backdrop-blur-lg">
             <div className="flex flex-wrap justify-center gap-3">
@@ -162,7 +153,7 @@ function App() {
                 <p className="mx-auto max-w-4xl text-2xl leading-relaxed text-slate-600">
                   React 개발을 더욱 편리하게 만들어주는 유용한 도구들을 모았습니다.
                   <br />
-                  <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-indigo-600 text-transparent">
+                  <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-transparent">
                     각 탭을 클릭하여 실제 동작을 확인해보세요!
                   </span>
                 </p>
