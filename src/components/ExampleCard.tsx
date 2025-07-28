@@ -9,7 +9,7 @@ export default function ExampleCard({
 }: ExampleMeta & { onClick: () => void }) {
   return (
     <div
-      className="group shadow-soft hover:border-primary-300 hover:shadow-colored-lg relative transform cursor-pointer rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1"
+      className="group hover:border-primary-400 hover:shadow-colored-xl relative transform cursor-pointer rounded-2xl border-2 border-slate-300 bg-gradient-to-br from-white to-slate-50 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
       onClick={onClick}
     >
       {/* Background Color on Hover */}
