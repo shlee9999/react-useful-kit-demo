@@ -225,17 +225,134 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative px-6 py-16 text-center">
-        <div className="mx-auto max-w-4xl">
-          <div className="shadow-elegant rounded-3xl border border-white/80 bg-white/95 p-10 backdrop-blur-sm">
-            <p className="text-xl font-medium text-slate-700">
-              Made with <span className="animate-pulse text-red-500">❤️</span> for React developers
-            </p>
-            <div className="mt-6 flex items-center justify-center gap-3 text-lg text-slate-500">
-              <span>Powered by</span>
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-transparent">
-                React Useful Kit
-              </span>
+      <footer className="relative px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="shadow-elegant rounded-3xl border border-white/80 bg-gradient-to-br from-white/95 to-slate-50/90 p-12 backdrop-blur-lg">
+            {/* Footer Content Grid */}
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+              {/* Brand Section */}
+              <div className="animate-fade-in text-center md:text-left">
+                <div className="mb-6 flex items-center justify-center gap-3 md:justify-start">
+                  <span className="text-4xl">⚛️</span>
+                  <h3 className="font-display bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-2xl font-bold text-transparent">
+                    React Useful Kit
+                  </h3>
+                </div>
+                <p className="text-lg leading-relaxed text-slate-600">
+                  React 개발을 더욱 편리하게 만들어주는
+                  <br />
+                  <span className="font-semibold text-slate-700">유용한 도구들의 모음집</span>
+                </p>
+                <div className="mt-6 flex items-center justify-center gap-2 md:justify-start">
+                  <span className="text-sm text-slate-500">Made with</span>
+                  <span className="animate-pulse text-red-500">❤️</span>
+                  <span className="text-sm text-slate-500">for developers</span>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div className="animate-fade-in text-center" style={{ animationDelay: '0.2s' }}>
+                <h4 className="mb-6 text-xl font-bold text-slate-800">빠른 링크</h4>
+                <div className="space-y-4">
+                  <button
+                    onClick={() => window.open('https://github.com/shlee9999/react-useful-kit', '_blank')}
+                    className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition-all duration-300 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-md"
+                  >
+                    <span className="text-xl transition-transform duration-300 group-hover:scale-110">📚</span>
+                    <span className="font-medium">문서 & 가이드</span>
+                  </button>
+                  <button
+                    onClick={() => window.open('https://www.npmjs.com/package/react-useful-kit', '_blank')}
+                    className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition-all duration-300 hover:bg-red-50 hover:text-red-600 hover:shadow-md"
+                  >
+                    <span className="text-xl transition-transform duration-300 group-hover:scale-110">📦</span>
+                    <span className="font-medium">NPM 패키지</span>
+                  </button>
+                  <button
+                    onClick={() => window.open('https://github.com/shlee9999/react-useful-kit/issues', '_blank')}
+                    className="group flex w-full items-center justify-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition-all duration-300 hover:bg-green-50 hover:text-green-600 hover:shadow-md"
+                  >
+                    <span className="text-xl transition-transform duration-300 group-hover:scale-110">💬</span>
+                    <span className="font-medium">이슈 & 피드백</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Social & Info */}
+              <div className="animate-fade-in text-center md:text-right" style={{ animationDelay: '0.4s' }}>
+                <h4 className="mb-6 text-xl font-bold text-slate-800">연결하기</h4>
+                <div className="mb-8 flex items-center justify-center gap-4 md:justify-end">
+                  <button
+                    onClick={() => window.open('https://github.com/shlee9999/react-useful-kit', '_blank')}
+                    className="group flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-slate-700 hover:shadow-xl"
+                  >
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => window.open('https://www.npmjs.com/package/react-useful-kit', '_blank')}
+                    className="group flex h-12 w-12 items-center justify-center rounded-xl bg-[#CB3837] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-[#a02d2c] hover:shadow-xl"
+                  >
+                    <Npm className="h-6 w-6" />
+                  </button>
+                </div>
+
+                <div className="space-y-3 text-sm text-slate-500">
+                  <div className="flex items-center justify-center gap-2 md:justify-end">
+                    <span className="text-lg">🚀</span>
+                    <span>버전 1.0.0</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 md:justify-end">
+                    <span className="text-lg">📄</span>
+                    <span>MIT 라이선스</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 md:justify-end">
+                    <span className="text-lg">⭐</span>
+                    <span>TypeScript 지원</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="animate-fade-in mt-12 border-t border-slate-200/60 pt-8" style={{ animationDelay: '0.6s' }}>
+              <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+                <div className="flex items-center gap-3 text-slate-500">
+                  <span>© 2025</span>
+                  <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-transparent">
+                    React Useful Kit
+                  </span>
+                  <span>All rights reserved.</span>
+                </div>
+
+                <div className="flex items-center gap-6 text-sm text-slate-500">
+                  <button
+                    onClick={() =>
+                      window.open('https://github.com/shlee9999/react-useful-kit/blob/main/CHANGELOG.md', '_blank')
+                    }
+                    className="transition-colors duration-300 hover:text-indigo-600"
+                  >
+                    변경사항
+                  </button>
+                  <button
+                    onClick={() =>
+                      window.open('https://github.com/shlee9999/react-useful-kit/blob/main/LICENSE', '_blank')
+                    }
+                    className="transition-colors duration-300 hover:text-indigo-600"
+                  >
+                    라이선스
+                  </button>
+                  <button
+                    onClick={() =>
+                      window.open('https://github.com/shlee9999/react-useful-kit/blob/main/CONTRIBUTING.md', '_blank')
+                    }
+                    className="transition-colors duration-300 hover:text-indigo-600"
+                  >
+                    기여하기
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
