@@ -3,6 +3,7 @@ import ExampleCard from '@/components/ExampleCard';
 import { useState } from 'react';
 import examples from './examples';
 import { cn } from '@/utils/cn';
+import { Npm } from '@/assets/icons/core';
 
 type TabType = 'overview' | keyof typeof examples;
 
@@ -83,20 +84,21 @@ function App() {
           </p>
 
           <div
-            className="animate-fade-in flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="animate-fade-in flex flex-wrap items-center justify-center gap-4"
             style={{ animationDelay: '0.4s' }}
           >
-            <Button
-              onClick={() => setActiveTab('overview')}
-              icon={<span className="text-lg transition-all duration-300">📚</span>}
-            >
-              시작하기
-            </Button>
             <Button
               onClick={() => window.open('https://github.com/shlee9999/react-useful-kit', '_blank')}
               variant="github"
             >
               GitHub
+            </Button>
+            <Button
+              onClick={() => window.open('https://www.npmjs.com/package/react-useful-kit', '_blank')}
+              icon={<Npm className="h-6 w-6" />}
+              className="bg-[#CB3837] text-white hover:bg-[#a02d2c]"
+            >
+              NPM
             </Button>
           </div>
         </div>
