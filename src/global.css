@@ -23,7 +23,9 @@
   --color-secondary-800: #9d174d;
   --color-secondary-900: #831843;
 
-  --font-family-display: 'Poppins', system-ui, sans-serif;
+  --font-family-display: 'Pretendard', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Pretendard', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
 
   --shadow-soft: 0 2px 20px 0 rgba(0, 0, 0, 0.08);
   --shadow-soft-lg: 0 8px 30px 0 rgba(0, 0, 0, 0.12);
@@ -77,6 +79,24 @@
   50% {
     transform: translateY(-10px);
   }
+}
+
+body {
+  font-family: var(--font-family-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-display);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
 }
 
 button {
