@@ -1,0 +1,21 @@
+pre.prism-code {
+  /** 코드 블록 스타일 */
+  padding: 20px !important;
+  & .token.plain-text:first-child {
+    /*? 탭 사이즈를 늘리기 위한 css입니다. */
+    /* letter-spacing: 4px; */
+  }
+}
+
+.live-code input,
+.live-code [role='combobox'],
+.live-code textarea {
+  background-color: white;
+}
+
+.code-hidden .prism-code > span {
+  opacity: 0;
+}
+.prism-code > span {
+  transition: opacity 300ms ease;
+}

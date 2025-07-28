@@ -5,6 +5,7 @@ import Title from '@/components/Title';
 import type { ExampleMeta } from '@/examples';
 import { useState } from 'react';
 import { Modal } from 'react-useful-kit';
+import { LiveCode } from '@/components/LiveCode';
 
 /**
  * Modal 컴포넌트의 사용 예제를 보여주는 컴포넌트입니다.
@@ -26,6 +27,26 @@ export default function ModalExample({ title, description, icon }: ExampleMeta) 
       <Title title={title} icon={icon} />
       <Description description={description} />
 
+      {/* 사용 방법 섹션 */}
+      <Section>
+        <Section.Title icon="📋">사용 방법</Section.Title>
+        <LiveCode
+          code={`
+<Modal>
+  <Modal.Trigger>
+    <button>모달 열기</button>
+  </Modal.Trigger>
+  <Modal.Content>
+    <h2>모달 제목</h2>
+    <p>모달 내용입니다!</p>
+    <Modal.Close />
+  </Modal.Content>
+</Modal>
+
+`}
+          scope={{ Modal }}
+        />
+      </Section>
       {/* 특징 섹션 */}
       <Section>
         <Section.Title icon="✨">특징</Section.Title>
@@ -159,49 +180,6 @@ export default function ModalExample({ title, description, icon }: ExampleMeta) 
       <Section>
         <Section.Title icon="📝">이벤트 로그</Section.Title>
         <Section.LogContainer logs={log} clearLog={clearLog} />
-      </Section>
-
-      {/* 사용 방법 섹션 */}
-      <Section>
-        <Section.Title icon="📋">사용 방법</Section.Title>
-        <div className="rounded-lg bg-slate-900 p-6">
-          <pre className="overflow-x-auto text-sm text-slate-200">
-            <code>{`import { Modal } from 'react-useful-kit'
-
-function App() {
-  return (
-    <Modal>
-      <Modal.Trigger>
-        <button>모달 열기</button>
-      </Modal.Trigger>
-      <Modal.Content>
-        <h2>모달 제목</h2>
-        <p>모달 내용입니다!</p>
-        <Modal.Close />
-      </Modal.Content>
-    </Modal>
-  )
-}`}</code>
-          </pre>
-        </div>
-      </Section>
-
-      {/* CSS 커스터마이징 섹션 */}
-      <Section>
-        <Section.Title icon="🎨">CSS 커스터마이징</Section.Title>
-        <div className="rounded-lg bg-slate-900 p-6">
-          <pre className="overflow-x-auto text-sm text-slate-200">
-            <code>{`.react-useful-kit-modal-overlay {
-  /* 오버레이 스타일 */
-}
-.react-useful-kit-modal-content {
-  /* 모달 콘텐츠 스타일 */
-}
-.react-useful-kit-modal-close {
-  /* 닫기 버튼 스타일 */
-}`}</code>
-          </pre>
-        </div>
       </Section>
     </>
   );
