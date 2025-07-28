@@ -81,7 +81,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-40px);
   }
 }
 
@@ -139,4 +139,25 @@ button {
 .smooth-hover:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-elegant-lg);
+}
+
+/* 커스텀 애니메이션 클래스들 */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite alternate;
 }

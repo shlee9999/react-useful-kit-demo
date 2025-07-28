@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50/90 via-purple-50/80 to-pink-50/70">
+    <div className="relative min-h-screen bg-gradient-to-br from-indigo-50/90 via-purple-50/80 to-pink-50/70">
       {/* Header */}
       <header className="shadow-elegant relative mb-12 overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 px-6 py-20 text-center">
         {/* Animated Background Elements */}
@@ -112,6 +112,10 @@ function App() {
         <div
           className="animate-float absolute bottom-20 left-20 h-64 w-64 rounded-full bg-pink-300/15 shadow-lg blur-2xl"
           style={{ animationDelay: '3s' }}
+        ></div>
+        <div
+          className="animate-float absolute top-1/2 right-20 bottom-20 h-72 w-72 rounded-full bg-pink-300/15 shadow-lg blur-2xl"
+          style={{ animationDelay: '0.5s' }}
         ></div>
       </div>
 
@@ -227,7 +231,7 @@ function App() {
             </p>
             <div className="mt-6 flex items-center justify-center gap-3 text-lg text-slate-500">
               <span>Powered by</span>
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-indigo-600 text-transparent">
+              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-transparent">
                 React Useful Kit
               </span>
             </div>
