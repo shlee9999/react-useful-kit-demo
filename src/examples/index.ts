@@ -10,7 +10,7 @@ export type ExampleMeta = {
 type ExampleComponentProps = ExampleMeta & Record<string, unknown>;
 
 const exampleMetas = import.meta.glob('./*/meta.ts', { eager: true }) as Record<string, { default: ExampleMeta }>;
-const exampleComponents = import.meta.glob('./*/example.tsx') as Record<
+const exampleComponents = import.meta.glob('./*/index.tsx') as Record<
   string,
   () => Promise<{ default: React.ComponentType<ExampleComponentProps> }>
 >;
@@ -23,7 +23,7 @@ const examples: Record<
 // meta 파일들 처리
 Object.entries(exampleMetas).forEach(([key, value]) => {
   const exampleName = key.replace('./', '').replace('/meta.ts', '');
-  const componentPath = key.replace('/meta.ts', '/example.tsx');
+  const componentPath = key.replace('/meta.ts', '/index.tsx');
 
   if (exampleComponents[componentPath]) {
     const LazyComponent = lazy(() =>
