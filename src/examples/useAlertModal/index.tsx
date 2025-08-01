@@ -9,7 +9,7 @@ import { useAlertModal } from 'react-useful-kit';
 /**
  * useAlertModal 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
-export default function AlertModalExample({ title, description, icon }: ExampleMeta) {
+export default function UseAlertModalExample({ title, description, icon }: ExampleMeta) {
   const [log, setLog] = useState<string[]>([]);
   const modalAlert = useAlertModal();
 

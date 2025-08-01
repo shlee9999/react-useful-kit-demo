@@ -24,7 +24,7 @@ interface Item {
 /**
  * useDeepMemo와 useDeepCallback 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
-export default function DeepHooksExample({ title, description, icon }: ExampleMeta) {
+export default function UseDeepHooksExample({ title, description, icon }: ExampleMeta) {
   const [user, setUser] = useState<User>({
     name: 'John',
     age: 30,

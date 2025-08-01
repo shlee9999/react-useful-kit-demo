@@ -18,7 +18,7 @@ interface User {
 /**
  * useDeepEffect 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
-export default function DeepEffectExample({ title, description, icon }: ExampleMeta) {
+export default function UseDeepEffectExample({ title, description, icon }: ExampleMeta) {
   const [user, setUser] = useState<User>({
     name: 'John',
     age: 30,
