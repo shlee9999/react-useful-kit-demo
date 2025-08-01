@@ -45,9 +45,9 @@ Section.LogContainer = function LogContainer({
   logs: string[];
   clearLog: () => void;
 }) {
-  const { alert } = useAlertModal();
+  const modalAlert = useAlertModal();
   const handleClearLog = () => {
-    alert({
+    modalAlert({
       title: '로그 삭제',
       message: '로그를 전부 삭제하시겠습니까?',
       onConfirm: clearLog,

@@ -10,20 +10,20 @@ import { useAlertModal } from 'react-useful-kit';
  * useAlertModal 훅의 사용 예제를 보여주는 컴포넌트입니다.
  */
 export default function AlertModalExample({ title, description, icon }: ExampleMeta) {
-  const { alert } = useAlertModal();
   const [log, setLog] = useState<string[]>([]);
+  const modalAlert = useAlertModal();
 
   const addLog = (message: string) => {
     setLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${message}`]);
   };
 
   const handleSimpleAlert = () => {
-    alert('간단한 알림 메시지입니다!');
+    modalAlert('간단한 알림 메시지입니다!');
     addLog('간단한 알림 호출');
   };
 
   const handleConfirmAlert = () => {
-    alert({
+    modalAlert({
       title: '확인 필요',
       message: '정말로 이 작업을 수행하시겠습니까?',
       showCancel: true,
@@ -33,7 +33,7 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
   };
 
   const handleCustomAlert = () => {
-    alert({
+    modalAlert({
       title: '사용자 정의 알림',
       message: '버튼 텍스트를 커스터마이징할 수 있습니다.',
       confirmText: '동의합니다',
@@ -45,7 +45,7 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
   };
 
   const handleJSXAlert = () => {
-    alert({
+    modalAlert({
       title: 'JSX 지원',
       message: (
         <div>
@@ -95,7 +95,7 @@ export default function AlertModalExample({ title, description, icon }: ExampleM
         <ul className="space-y-2 pl-5 text-emerald-700">
           <li className="leading-relaxed">
             <strong>간단한 사용:</strong>{' '}
-            <code className="rounded bg-white/70 px-2 py-1 font-mono text-sm">alert('메시지')</code>
+            <code className="rounded bg-white/70 px-2 py-1 font-mono text-sm">modalAlert('메시지')</code>
           </li>
           <li className="leading-relaxed">
             <strong>옵션 사용:</strong> 제목, 버튼 텍스트, 콜백 함수 등을 커스터마이징
