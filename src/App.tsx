@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import examples from './examples';
 import { cn } from '@/utils/cn';
 import { Npm } from '@/assets/icons/core';
+import { version } from '../package.json';
 
 type TabType = 'overview' | keyof typeof examples;
 
@@ -314,7 +315,7 @@ function App() {
                 <div className="space-y-3 text-sm text-slate-500">
                   <div className="flex items-center justify-center gap-2 md:justify-end">
                     <span className="text-lg">🚀</span>
-                    <span>버전 1.0.0</span>
+                    <span>버전 {version}</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 md:justify-end">
                     <span className="text-lg">📄</span>
