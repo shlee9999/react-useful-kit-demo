@@ -1,6 +1,6 @@
 import Button from '@/components/Button';
 import ExampleCard from '@/components/ExampleCard';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import examples from './examples';
 import { cn } from '@/utils/cn';
 import { Npm } from '@/assets/icons/core';
@@ -32,6 +32,19 @@ const tabs = [
 
 function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const navRef = useRef<HTMLElement>(null);
+
+  const handleTabClick = (tabId: TabType) => {
+    setActiveTab(tabId);
+
+    // 탭 클릭 시 네비게이션이 화면 상단에 오도록 스크롤
+    if (navRef.current) {
+      navRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
 
   const renderActiveComponent = () => {
     if (activeTab === 'overview') return null;
@@ -122,14 +135,14 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="relative mb-12 px-6">
+      <nav ref={navRef} className="sticky top-0 z-50 mb-12">
         <div className="mx-auto max-w-6xl">
           <div className="shadow-elegant rounded-3xl border border-white/80 bg-white/95 p-3 backdrop-blur-lg">
             <div className="flex flex-wrap justify-center gap-3">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as TabType)}
+                  onClick={() => handleTabClick(tab.id as TabType)}
                   className={cn(
                     'transform rounded-xl px-6 py-3 font-medium transition-all duration-300 hover:scale-105',
                     activeTab === tab.id
@@ -172,7 +185,7 @@ function App() {
               >
                 {Object.entries(examples).map(([key, example], index) => (
                   <div key={key} className="animate-fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
-                    <ExampleCard {...example} onClick={() => setActiveTab(key as TabType)} />
+                    <ExampleCard {...example} onClick={() => handleTabClick(key as TabType)} />
                   </div>
                 ))}
               </div>
