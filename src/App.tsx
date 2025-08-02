@@ -1,10 +1,10 @@
+import { Npm } from '@/assets/icons/core';
 import Button from '@/components/Button';
 import ExampleCard from '@/components/ExampleCard';
-import { useState, useRef, useEffect } from 'react';
-import examples from './examples';
 import { cn } from '@/utils/cn';
-import { Npm } from '@/assets/icons/core';
+import { useRef, useState } from 'react';
 import { version } from '../package.json';
+import examples from './examples';
 
 type TabType = 'overview' | keyof typeof examples;
 
